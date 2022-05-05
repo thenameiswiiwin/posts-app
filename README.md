@@ -4,8 +4,6 @@ This template developed with Vue 3, Typescript, Tailwind CSS, Pania, Vitest in V
 
 ## Preview
 
-<img src="https://raw.githubusercontent.com/xyhxx/program_preview/master/vite-vue-proste/preview.png" />
-
 ## Usage
 
 - Clone this repo, like `git clone https://https://github.com/thenameiswiiwin/posts-app`
@@ -65,7 +63,7 @@ First-party plugins needed for Tailwind UI:
 - [Neovim](https://neovim.io/doc/)
 - [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
 
-## 🎊Preset
+## Preset
 
 > Alias folders are exported using index
 
