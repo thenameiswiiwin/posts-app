@@ -1,4 +1,3 @@
-import { nextTick } from 'vue'
 import { mount } from '@vue/test-utils'
 import { it, describe, expect } from 'vitest'
 import Timeline from '@components/TimelineComponent.vue'

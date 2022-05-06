@@ -47,19 +47,17 @@
     </span>
   </nav>
   <main>
-    <div v-for="post in posts" :key="post.id">
-      <section class="card mt-4 w-full bg-base-100 shadow-xl">
-        <div class="card-body flex-row">
-          <a class="btn btn-link btn-xs card-title">{{ post.title }}</a>
-          <div>{{ post.created.format('Do MMM') }}</div>
-        </div>
-      </section>
-    </div>
+    <TimelinePost v-for="post in posts" :key="post.id" :post='post'/>
   </main>
 </template>
 
 <script lang="ts">
+  import TimelinePost from '@components/TimelinePost.vue'
+
   export default {
     name: 'TimelineComponent',
+    components: {
+      TimelinePost
+    }
   }
 </script>
