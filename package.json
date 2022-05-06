@@ -12,7 +12,9 @@
     "format": "prettier -c --write **/*"
   },
   "dependencies": {
+    "@types/moment": "2.13",
     "axios": "^0.27.2",
+    "moment": "2.13",
     "pinia": "^2.0.13",
     "vue": "^3.2.25",
     "vue-query": "^1.22.3",
@@ -34,6 +36,7 @@
     "@vue/test-utils": "^2.0.0-rc.21",
     "autoprefixer": "^10.4.7",
     "babel-plugin-remove-attribute": "^1.0.0",
+    "daisyui": "^2.14.3",
     "editorconfig": "^0.15.3",
     "eslint": "^8.14.0",
     "eslint-config-prettier": "^8.5.0",

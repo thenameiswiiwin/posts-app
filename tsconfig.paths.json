@@ -5,7 +5,7 @@
       "@styles/*": ["./styles/*"],
       "@assets/*": ["./assets/*"],
       "@routes": ["./routes/index"],
-      "@apis": ["./apis/index"],
+      "@data": ["./data/*"],
       "@components": ["./components/*"],
       "@hooks": ["./hooks/index"],
       "@pages": ["./pages/index"],
