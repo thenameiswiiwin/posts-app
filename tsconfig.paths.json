@@ -10,8 +10,9 @@
       "@hooks": ["./hooks/index"],
       "@pages": ["./pages/index"],
       "@pages/*": ["./pages/*"],
-      "@stores": ["./stores/index"],
-      "@utils": ["./utils/index"]
+      "@stores": ["./stores/*"],
+      "@utils": ["./utils/index"],
+      "@apis": ["./apis/*"]
     }
   }
 }

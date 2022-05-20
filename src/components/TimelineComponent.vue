@@ -1,14 +1,29 @@
 <script setup lang="ts">
-  import { ref, computed } from 'vue'
-  import { today, thisWeek, thisMonth } from '../data/mock.ts'
+  import { ref, computed, onMounted } from 'vue'
+  import { useStore } from '@stores/store.ts'
   import moment from 'moment'
 
   type Period = 'Today' | 'This Week' | 'This Month'
 
   const periods = ['Today', 'This Week', 'This Month']
   const currentPeriod = ref<Period>('Today')
+  const store = useStore()
+
+    if (!store.getState().posts.loaded) {
+      await store.fetchPosts()
+    }
+
+  const allPosts: Post[] = store.getState().posts.ids.reduce<Post[]>((acc, id) => {
+    const thePost = store.getState().posts.all.get(id)
+    if (!thePost) {
+      throw Error('This post was not found')
+    }
+    return acc.concat(thePost)
+  }, [])
+
   const posts = computed(() => {
-    return [today, thisWeek, thisMonth].filter(post => {
+    return allPosts.filter(post => {
+      console.log(post.created)
       if (currentPeriod.value === 'Today') {
         return post.created.isAfter(moment().subtract(1, 'day'))
       }
@@ -32,12 +47,8 @@
     <span class="flex w-full justify-center">
       <ul v-for="period in periods" :key="period">
         <li
-          :class="[
-            'tab tab-lifted md:px-12',
-            {
-              'btn btn-outline btn-accent tab-active': period === currentPeriod,
-            },
-          ]"
+          class="tab tab-lifted md:px-12"
+          :class="{ 'btn-outline btn-accent tab-active': period === currentPeriod }"
           :data-test="period"
           @click="setPeriod(period)"
         >
@@ -47,7 +58,7 @@
     </span>
   </nav>
   <main>
-    <TimelinePost v-for="post in posts" :key="post.id" :post='post'/>
+    <TimelinePost v-for="post in posts" :key="post.id" :post="post" />
   </main>
 </template>
 
@@ -57,7 +68,7 @@
   export default {
     name: 'TimelineComponent',
     components: {
-      TimelinePost
-    }
+      TimelinePost,
+    },
   }
 </script>

@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-  import { Post } from '../data/mock.ts'
+  import { Post } from '@data/index.ts'
 
   export default {
     name: 'TimelineComponent',
